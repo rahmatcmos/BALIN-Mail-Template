@@ -23,7 +23,7 @@ class BalinMail
 		$infos 						= [];
 		foreach ($store as $key => $value) 
 		{
-			$infos[$value['type']]	= $value->value;
+			$infos[$value['type']]	= $value['value'];
 		}
 
 		$data		= ['user' => $user, 'balin' => $infos];
