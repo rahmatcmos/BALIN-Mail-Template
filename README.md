@@ -6,7 +6,7 @@ Package contain view and api to send mail for balin client. Documentation will b
 
 composer.json:
 ```
-	"thunderid/balinmailtemplate": "dev-master"
+	"thunderid/balin-mail-template": "dev-master"
 ```
 
 run

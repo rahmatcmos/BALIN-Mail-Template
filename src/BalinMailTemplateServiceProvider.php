@@ -18,7 +18,8 @@ class BalinMailTemplateServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		//
+		//load view
+		$this->loadViewsFrom(__DIR__.'/views', 'balin-mail');
 	}
 
 	/**
