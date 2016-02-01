@@ -19,5 +19,5 @@
             "ThunderID\\BalinMailTemplate\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
