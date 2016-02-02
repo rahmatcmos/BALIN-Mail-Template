@@ -4,7 +4,7 @@
 <table style="width:100%">
 	<tr class="row">
 		<td class="col-sm-2" style="width:20%">
-			<img src="{{ $message->embed('Balin/web/image/logo-invoice.png') }}" class="img img-responsive" style="max-width:200px">
+			<img src="{{ $message->embed('images/logo-invoice.png') }}" class="img img-responsive" style="max-width:200px">
 		</td>
 		<td class="col-sm-10" valign="top" style="text-align:right;width:40%">
 			<h3>Invoice <strong>#{!!$data['invoice']['ref_number']!!}</strong></h3>
@@ -159,7 +159,7 @@
 			<td colspan="2">&nbsp;</td>
 			<td colspan="2" style="text-align:left;">Balin Point yang digunakan</td>
 			<td style="text-align:right;">IDR</td>
-			<td style="text-align:right;padding:5px;">@money_indo_for_email($data['invoice']['discount_point'])</td>
+			<td style="text-align:right;padding:5px;">@money_indo_for_email( $data['invoice']['amount'] - $data['invoice']['bills'] - (isset($data['invoice']['payment']['amount']) ? $data['invoice']['payment']['amount'] : 0))</td>
 		</tr>
 		<tr>
 			<td colspan="2">&nbsp;</td>
