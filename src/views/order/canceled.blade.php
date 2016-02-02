@@ -4,7 +4,7 @@
 	<table style="width:100%">
 		<tr>
 			<td style="width:80%">
-				<img src="{{ $message->embed('Balin/web/image/balin-white.png') }}" style="max-width:200px; text-align:left;">
+				<img src="{{ $message->embed('images/balin-white.png') }}" style="max-width:200px; text-align:left;">
 			</td>
 			<td style="width:20%"></td>
 		</tr>
@@ -19,7 +19,7 @@
 						<td>
 							<p>Dear	Bpk/Ibu <strong>{{$data['canceled']['user']['name']}}, </strong></p>
 							<p> 
-								Pesanan <strong>#{{$data['canceled']['ref_number']}}</strong> sudah dibatalkan karena belum diterima pembayaran dalam waktu 1x24 jam, atau Pesanan <strong>#{{$data['canceled']['ref_number']}}</strong> sudah dibatalkan karena permintaan customer.
+								Pesanan <strong>#{{$data['canceled']['ref_number']}}</strong> sudah dibatalkan karena belum diterima pembayaran dalam waktu 1x24 jam, atau karena permintaan customer.
 							</p>
 							<p>
 								Nikmati bonus belanja dari produk BALIN lainnya.

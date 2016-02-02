@@ -98,4 +98,128 @@ class BalinMail
 		
 		return true;
 	}
+
+	public function canceled(array $order, array $store)
+	{
+		// checking order data
+		if(empty($order))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		// checking store data
+		if(empty($store))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		$infos 						= [];
+		foreach ($store as $key => $value) 
+		{
+			$infos[$value['type']]	= $value['value'];
+		}
+
+		$data			= ['canceled' => $order, 'balin' => $infos];
+
+		//send mail
+		Mail::send('balin-mail::order.canceled', ['data' => $data], function($message) use($order)
+		{
+			$message->to($order['user']['email'], $order['user']['name'])->subject('BALIN - CANCEL ORDER');
+		}); 
+		
+		return true;
+	}
+
+	public function paid(array $order, array $store)
+	{
+		// checking order data
+		if(empty($order))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		// checking store data
+		if(empty($store))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		$infos 						= [];
+		foreach ($store as $key => $value) 
+		{
+			$infos[$value['type']]	= $value['value'];
+		}
+
+		$data		= ['paid' => $order, 'balin' => $infos];
+
+		//send mail
+		Mail::send('balin-mail::order.paid', ['data' => $data], function($message) use($order)
+		{
+			$message->to($order['user']['email'], $order['user']['name'])->subject('BALIN - PAYMENT VALIDATION');
+		}); 
+		
+		return true;
+	}
+
+	public function shipped(array $order, array $store)
+	{
+		// checking order data
+		if(empty($order))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		// checking store data
+		if(empty($store))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		$infos 						= [];
+		foreach ($store as $key => $value) 
+		{
+			$infos[$value['type']]	= $value['value'];
+		}
+
+		$data		= ['shipped' => $order, 'balin' => $infos];
+
+		//send mail
+		Mail::send('balin-mail::order.shipped', ['data' => $data], function($message) use($order)
+		{
+			$message->to($order['user']['email'], $order['user']['name'])->subject('BALIN - SHIPPING INFORMATION');
+		}); 
+		
+		return true;
+	}
+
+	public function delivered(array $order, array $store)
+	{
+		// checking order data
+		if(empty($order))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		// checking store data
+		if(empty($store))
+		{
+			throw new Exception('Sent variable must be array of a record.');
+		}
+
+		$infos 						= [];
+		foreach ($store as $key => $value) 
+		{
+			$infos[$value['type']]	= $value['value'];
+		}
+
+		$data		= ['delivered' => $order, 'balin' => $infos];
+
+		//send mail
+		Mail::send('balin-mail::order.delivered', ['data' => $data], function($message) use($order)
+		{
+			$message->to($order['user']['email'], $order['user']['name'])->subject('BALIN - DELIVERED ORDER');
+		}); 
+		
+		return true;
+	}
 }

@@ -4,7 +4,7 @@
 	<table style="width:100%">
 		<tr class="row">
 			<td style="width:60%">
-				<img src="{{ $message->embed('Balin/web/image/balin-white.png') }}" style="max-width:200px; text-align:left;">
+				<img src="{{ $message->embed('images/balin-white.png') }}" style="max-width:200px; text-align:left;">
 			</td>
 			<td valign="top" style="text-align:right;width:40%">
 				<h3>Resi Pengiriman</h3>
@@ -53,16 +53,16 @@
 				<table class="twelve columns">
 					<tr>
 						<td>
-							<p>Dear	Bpk/Ibu <strong>{{$data['ship']['user']['name']}}, </strong></p>
+							<p>Dear	Bpk/Ibu <strong>{{$data['shipped']['user']['name']}}, </strong></p>
 							<p> 
-								Pesanan <strong>#{{$data['ship']['ref_number']}}</strong> sedang dalam proses pengiriman dengan nomor resi pengiriman
-								<strong>{{$data['ship']['shipment']['receipt_number']}}</strong>, menggunakan jasa kurir {{$data['ship']['shipment']['courier']['name']}}
+								Pesanan <strong>#{{$data['shipped']['ref_number']}}</strong> sedang dalam proses pengiriman dengan nomor resi pengiriman
+								<strong>{{$data['shipped']['shipment']['receipt_number']}}</strong>, menggunakan jasa kurir {{$data['shipped']['shipment']['courier']['name']}}
 								ke tujuan pengiriman :
 							</p>
 							<p>
-								Nama Penerima :  {{$data['ship']['shipment']['receiver_name']}} <br>
-								No Telp : {{$data['ship']['shipment']['address']['phone']}} <br>
-								Alamat : {{$data['ship']['shipment']['address']['address']}} , {{$data['ship']['shipment']['address']['zipcode']}}
+								Nama Penerima :  {{$data['shipped']['shipment']['receiver_name']}} <br>
+								No Telp : {{$data['shipped']['shipment']['address']['phone']}} <br>
+								Alamat : {{$data['shipped']['shipment']['address']['address']}} , {{$data['shipped']['shipment']['address']['zipcode']}}
 							</p>
 						</td>
 					<tr>
@@ -79,7 +79,7 @@
 								</thead>
 								<tbody>
 									<?php $amount = 0;?>
-									@forelse($data['ship']['transactiondetails'] as $key => $value)
+									@forelse($data['shipped']['transactiondetails'] as $key => $value)
 										<?php $amount = $amount + (($value['price'] - $value['discount']) * $value['quantity']);?>
 										<tr>
 											<td class="text-center" style="text-align:center;background-color:#C6C6C6;padding:5px;">{!!($key+1)!!}</td>

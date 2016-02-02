@@ -4,7 +4,7 @@
 	<table style="width:100%">
 		<tr class="row">
 			<td style="width:60%">
-				<img src="{{ $message->embed('Balin/web/image/balin-white.png') }}" style="max-width:200px; text-align:left;">
+				<img src="{{ $message->embed('images/balin-white.png') }}" style="max-width:200px; text-align:left;">
 			</td>
 			<td valign="top" style="text-align:right;width:40%">
 				<h3>Pesanan Anda Sudah Tiba<br>Di Tujuan</h3>

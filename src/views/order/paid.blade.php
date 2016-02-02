@@ -4,7 +4,7 @@
 	<table style="width:100%">
 		<tr class="row">
 			<td class="col-sm-2" style="width:20%">
-				<img src="{{ $message->embed('Balin/web/image/logo-invoice.png') }}" class="img img-responsive" style="max-width:200px">
+				<img src="{{ $message->embed('images/balin-white.png') }}" style="max-width:200px; text-align:left;">
 			</td>
 			<td class="col-sm-10" valign="top" style="text-align:right;width:40%">
 				<h3>Validasi Pembayaran</h3>
