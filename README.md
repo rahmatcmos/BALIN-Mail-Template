@@ -24,3 +24,14 @@ service provider
 ```
 'ThunderID\BalinMailTemplate\BalinMailTemplateServiceProvider'
 ```
+
+aliases (config app)
+```
+'BalinMail'     => ThunderID\BalinMailTemplate\BalinMail::class'
+```
+
+called function
+```
+BalinMail::invoice(data invoice, data config)
+```
+
