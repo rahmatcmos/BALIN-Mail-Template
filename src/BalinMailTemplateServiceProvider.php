@@ -1,6 +1,7 @@
 <?php namespace ThunderID\BalinMailTemplate;
 
 use Illuminate\Support\ServiceProvider;
+use Blade;
 
 class BalinMailTemplateServiceProvider extends ServiceProvider 
 {
@@ -21,6 +22,18 @@ class BalinMailTemplateServiceProvider extends ServiceProvider
 	{
 		//load view
 		$this->loadViewsFrom(__DIR__.'/views', 'balin-mail');
+
+		// blade extens money indonesia
+		Blade::directive('balin_mail_money_indo', function($expression)
+		{
+			return "<?php echo 'IDR '.number_format($expression, 0, ',', '.'); ?>";
+		});
+
+		// blade extens money indonesia for email
+        Blade::directive('balin_mail_money_indo_without_IDR', function($expression)
+        {
+            return "<?php echo number_format($expression, 0, ',', '.'); ?>";
+        });
 	}
 
 	/**

@@ -74,9 +74,9 @@
 			<br/>
 			<br/>
 			@if($data['invoice']['bills'] < 0)
-				@money_indo(0)
+				@balin_mail_money_indo(0)
 			@else
-				@money_indo($data['invoice']['bills'])
+				@balin_mail_money_indo($data['invoice']['bills'])
 			@endif
 		</td>
 		<td class="col-sm-2" style="width:25%; 
@@ -125,9 +125,9 @@
 				<td class="text-center" style="text-align:center;background-color:#C6C6C6;padding:5px;">{!!($key+1)!!}</td>
 				<td style="text-align:left;background-color:#C6C6C6;padding:5px;"> {{$value['varian']['product']['name']}} {{$value['varian']['size']}}</td>
 				<td class="text-center" style="text-align:center;background-color:#C6C6C6;padding:5px;"> {{$value['quantity']}} </td>
-				<td class="text-right" style="text-align:right;background-color:#C6C6C6;padding:5px;"> @money_indo($value['price']) </td>
-				<td class="text-right" style="text-align:right;background-color:#C6C6C6;padding:5px;"> @money_indo($value['discount']) </td>
-				<td class="text-right" style="text-align:right;background-color:#C6C6C6;padding:5px;"> @money_indo((($value['price'] - $value['discount']) * $value['quantity'])) </td>
+				<td class="text-right" style="text-align:right;background-color:#C6C6C6;padding:5px;"> @balin_mail_money_indo($value['price']) </td>
+				<td class="text-right" style="text-align:right;background-color:#C6C6C6;padding:5px;"> @balin_mail_money_indo($value['discount']) </td>
+				<td class="text-right" style="text-align:right;background-color:#C6C6C6;padding:5px;"> @balin_mail_money_indo((($value['price'] - $value['discount']) * $value['quantity'])) </td>
 			</tr>
 		@empty
 			<tr>
@@ -141,40 +141,40 @@
 			<td colspan="2">&nbsp;</td>
 			<td colspan="2" style="text-align:left;">Sub Total</td>
 			<td style="text-align:right;">IDR</td>
-			<td style="text-align:right;padding:5px;">@money_indo_for_email($amount)</td>
+			<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR($amount)</td>
 		</tr>
 		<tr>
 			<td colspan="2">&nbsp;</td>
 			<td colspan="2" style="text-align:left;">Ongkos Kirim</td>
 			<td style="text-align:right;">IDR</td>
-			<td style="text-align:right;padding:5px;">@money_indo_for_email($data['invoice']['shipping_cost'])</td>
+			<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR($data['invoice']['shipping_cost'])</td>
 		</tr>
 		<tr>
 			<td colspan="2">&nbsp;</td>
 			<td colspan="2" style="text-align:left;">Diskon Voucher</td>
 			<td style="text-align:right;">IDR</td>
-			<td style="text-align:right;padding:5px;">@money_indo_for_email(($data['invoice']['voucher_discount'] ? $data['invoice']['voucher_discount'] : 0))</td>
+			<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR(($data['invoice']['voucher_discount'] ? $data['invoice']['voucher_discount'] : 0))</td>
 		</tr>
 		<tr>
 			<td colspan="2">&nbsp;</td>
 			<td colspan="2" style="text-align:left;">Balin Point yang digunakan</td>
 			<td style="text-align:right;">IDR</td>
-			<td style="text-align:right;padding:5px;">@money_indo_for_email( $data['invoice']['amount'] - $data['invoice']['bills'] - (isset($data['invoice']['payment']['amount']) ? $data['invoice']['payment']['amount'] : 0))</td>
+			<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR( $data['invoice']['amount'] - $data['invoice']['bills'] - (isset($data['invoice']['payment']['amount']) ? $data['invoice']['payment']['amount'] : 0))</td>
 		</tr>
 		<tr>
 			<td colspan="2">&nbsp;</td>
 			<td colspan="2" style="text-align:left;">Potongan Transfer</td>
 			<td style="text-align:right;">IDR</td>
-			<td style="text-align:right;padding:5px;">@money_indo_for_email($data['invoice']['unique_number'])</td>
+			<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR($data['invoice']['unique_number'])</td>
 		</tr>
 		<tr>
 			<td colspan="2">&nbsp;</td>
 			<td colspan="2" style="text-align:left;">Total Yang Harus Dibayarkan</td>
 			<td style="text-align:right;">IDR</td>
 			@if($data['invoice']['bills'] < 0)
-				<td style="text-align:right;padding:5px;">@money_indo_for_email(0)</td>
+				<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR(0)</td>
 			@else
-				<td style="text-align:right;padding:5px;">@money_indo_for_email($data['invoice']['bills'])</td>
+				<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR($data['invoice']['bills'])</td>
 			@endif
 		</tr>
 	</tbody>
