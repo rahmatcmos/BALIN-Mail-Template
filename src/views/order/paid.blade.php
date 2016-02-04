@@ -56,7 +56,7 @@
 							<br/>
 							<?php
 								$point 			= 0;
-								foreach ($data['paid']['pointlogs'] as $key => $value) 
+								foreach ($data['paid']['paidpointlogs'] as $key => $value) 
 								{
 									$point 		= $point + $value['amount'];
 								}
@@ -64,10 +64,10 @@
 							<p>Dear Bpk/Ibu <strong>{{$data['paid']['user']['name']}}, </strong></p>
 							<p> 
 								Pembayaran untuk pesanan <strong>#{{$data['paid']['ref_number']}}</strong> telah kami terima pada tanggal 
-								@if($data['paid']['payment']) 
-									@date_indo($data['paid']['payment']['ondate']) 
+								@if(count($data['paid']['payment'])) 
+									@balin_mail_date_indo($data['paid']['payment']['ondate']) 
 								@else 
-									@date_indo($data['paid']['updated_at']) 
+									@balin_mail_date_indo($data['paid']['updated_at']) 
 								@endif
 							</p>
 							@if($data['paid']['payment'])
@@ -145,7 +145,7 @@
 							<td colspan="2">&nbsp;</td>
 							<td colspan="2" style="text-align:left;">Balin Point yang digunakan</td>
 							<td style="text-align:right;">IDR</td>
-							<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR($data['paid']['discount_point'])</td>
+							<td style="text-align:right;padding:5px;">@balin_mail_money_indo_without_IDR($point)</td>
 						</tr>
 						<tr>
 							<td colspan="2">&nbsp;</td>

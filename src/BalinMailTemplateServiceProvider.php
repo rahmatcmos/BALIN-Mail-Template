@@ -23,6 +23,12 @@ class BalinMailTemplateServiceProvider extends ServiceProvider
 		//load view
 		$this->loadViewsFrom(__DIR__.'/views', 'balin-mail');
 
+		// blade extens date indonesia
+        Blade::directive('balin_mail_date_indo', function($expression) 
+        {
+            return "<?php echo date('d-m-Y', strtotime($expression)); ?>";
+        });
+
 		// blade extens money indonesia
 		Blade::directive('balin_mail_money_indo', function($expression)
 		{
